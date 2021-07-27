@@ -1,14 +1,13 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
 	icon: {
@@ -83,30 +82,36 @@ export default function Album() {
 		<React.Fragment>
 			<CssBaseline />
 			<main>
-				{/* Hero unit */}
-				<Container className={classes.cardGrid} maxWidth='md'>
-					{/* End hero unit */}
+				<Container className={classes.cardGrid} maxWidth='lg'>
 					<Grid container spacing={4}>
 						{initialState.map((card) => (
 							<Grid item key={card} xs={12} sm={6} md={4}>
-								<Card className={classes.card}>
-									<CardContent
-										className={classes.cardContent}
-									>
-										<Typography
-											gutterBottom
-											variant='h5'
-											component='h2'
+								<Paper elevation={3}>
+									<Card className={classes.card}>
+										<CardContent
+											className={classes.cardContent}
 										>
-											{card.Product}
-										</Typography>
-										<Typography>{card.Price}</Typography>
-									</CardContent>
-									<span>
-										<Button>Edit</Button>
-										<Button>Delete</Button>
-									</span>
-								</Card>
+											<Typography
+												gutterBottom
+												variant='h5'
+												component='h2'
+											>
+												Product: {card.Product}
+											</Typography>
+											<Typography
+												gutterBottom
+												variant='h5'
+												component='h2'
+											>
+												Price: {card.Price}
+											</Typography>
+										</CardContent>
+										<span>
+											<Button>Edit</Button>
+											<Button>Delete</Button>
+										</span>
+									</Card>
+								</Paper>
 							</Grid>
 						))}
 					</Grid>
