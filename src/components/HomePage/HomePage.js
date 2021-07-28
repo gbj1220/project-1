@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import { getProducts } from '../Products/Products';
 
 const useStyles = makeStyles((theme) => ({
 	icon: {
@@ -41,41 +42,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 export default function Album() {
 	const classes = useStyles();
 
-	let initialState = [
-		{
-			Product: 'Apple',
-			Price: `$1.99`,
-		},
-
-		{
-			Product: 'Banana',
-			Price: `$ .99`,
-		},
-
-		{
-			Product: 'Pear',
-			Price: `$1.99`,
-		},
-
-		{
-			Product: 'Orange',
-			Price: `$ .99`,
-		},
-		{
-			Product: 'Coconut',
-			Price: `$3.99`,
-		},
-
-		{
-			Product: 'Avocado',
-			Price: `$199.99`,
-		},
-	];
+	const products = getProducts();
+	console.log(products);
 
 	return (
 		<React.Fragment>
@@ -83,7 +54,7 @@ export default function Album() {
 			<main>
 				<Container className={classes.cardGrid} maxWidth='lg'>
 					<Grid container spacing={4}>
-						{initialState.map((card) => (
+						{products.map((card) => (
 							<Grid item key={card} xs={12} sm={6} md={4}>
 								<Paper elevation={3}>
 									<Card className={classes.card}>
