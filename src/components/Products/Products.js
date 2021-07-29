@@ -29,6 +29,13 @@ let products = [
 	},
 ];
 
+export const loginInfo = [
+	{
+		name: 'Greg',
+		password: '123',
+	},
+];
+
 export const getProducts = () => {
 	return products;
 };

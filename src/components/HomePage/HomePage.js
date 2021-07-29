@@ -49,6 +49,8 @@ export default function Album() {
 	console.log(products);
 
 	return (
+		// do a turnery using what is already here as the not logged in page
+		// then make a copy of this but
 		<React.Fragment>
 			<CssBaseline />
 			<main>
