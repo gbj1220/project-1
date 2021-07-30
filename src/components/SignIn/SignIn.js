@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { mainContext } from '../../context/context';
+import { SettingsSystemDaydreamRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -47,6 +48,9 @@ export default function SignIn() {
 	const classes = useStyles();
 
 	const ourContext = useContext(mainContext);
+
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleOnSubmit = (e) => {
 		return e.preventDefault();
@@ -87,6 +91,8 @@ export default function SignIn() {
 							name='username'
 							autoComplete='username'
 							autoFocus
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<TextField
 							variant='outlined'
@@ -97,17 +103,17 @@ export default function SignIn() {
 							label='Password'
 							type='password'
 							id='password'
-							autoComplete='current-password'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
-						{console.log(ourContext.state.isAuth)}
-						{console.log(ourContext.state.user)}
+
 						<Button
 							onClick={() =>
 								ourContext.dispatch({
 									type: 'SIGN_IN',
 									payload: {
-										username: 'User',
-										password: 'abc123',
+										username: username,
+										password: password,
 									},
 								})
 							}

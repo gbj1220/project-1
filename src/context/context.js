@@ -9,8 +9,7 @@ const initialState = {
 const signInReducer = (state, action) => {
 	switch (action.type) {
 		case 'SIGN_IN':
-			console.log(action.payload.username);
-			console.log(action.payload.password);
+			console.log(action.payload);
 			if (
 				action.payload.username === 'User' &&
 				action.payload.password === 'abc123'
@@ -20,6 +19,7 @@ const signInReducer = (state, action) => {
 					user: action.payload.username,
 				};
 			}
+			break;
 
 		default:
 			console.log('Default ran signInReducer');
