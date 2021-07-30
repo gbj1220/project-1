@@ -82,10 +82,10 @@ export default function SignIn() {
 							margin='normal'
 							required
 							fullWidth
-							id='email'
-							label='Email Address'
-							name='email'
-							autoComplete='email'
+							id='username'
+							label='Username'
+							name='username'
+							autoComplete='username'
 							autoFocus
 						/>
 						<TextField
@@ -99,13 +99,15 @@ export default function SignIn() {
 							id='password'
 							autoComplete='current-password'
 						/>
+						{console.log(ourContext.state.isAuth)}
+						{console.log(ourContext.state.user)}
 						<Button
 							onClick={() =>
 								ourContext.dispatch({
-									case: 'SIGN_IN',
+									type: 'SIGN_IN',
 									payload: {
-										username: 'password',
-										password: '123abc',
+										username: 'User',
+										password: 'abc123',
 									},
 								})
 							}

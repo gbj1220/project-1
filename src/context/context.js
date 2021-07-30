@@ -1,3 +1,4 @@
+import { TurnedInTwoTone } from '@material-ui/icons';
 import { createContext, useReducer } from 'react';
 
 const initialState = {
@@ -8,13 +9,21 @@ const initialState = {
 const signInReducer = (state, action) => {
 	switch (action.type) {
 		case 'SIGN_IN':
-			console.log('SIGN_IN ran');
-			console.log(action.payload);
-			break;
+			console.log(action.payload.username);
+			console.log(action.payload.password);
+			if (
+				action.payload.username === 'User' &&
+				action.payload.password === 'abc123'
+			) {
+				return {
+					isAuth: true,
+					user: action.payload.username,
+				};
+			}
 
 		default:
-			console.log('signInReducerRan');
-			console.log(action.payload);
+			console.log('Default ran signInReducer');
+			return initialState;
 	}
 };
 
