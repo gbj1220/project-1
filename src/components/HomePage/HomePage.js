@@ -46,7 +46,6 @@ export default function Album() {
 	const classes = useStyles();
 
 	const products = getProducts();
-	console.log(products);
 
 	return (
 		// do a turnery using what is already here as the not logged in page

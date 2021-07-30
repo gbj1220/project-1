@@ -18,6 +18,7 @@ let products = [
 		Product: 'Orange',
 		Price: `$ .99`,
 	},
+
 	{
 		Product: 'Coconut',
 		Price: `$3.99`,

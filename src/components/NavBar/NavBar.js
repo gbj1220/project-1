@@ -35,7 +35,7 @@ export default function NavBar() {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant='h6' className={classes.title}>
-						Fruits
+						My Shopping App
 					</Typography>
 					<Button color='inherit'>Login</Button>
 				</Toolbar>
