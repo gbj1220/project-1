@@ -5,7 +5,7 @@ const initialState = {
 	user: null,
 };
 
-const signInReducer = (state, action) => {
+const reducer = (state, action) => {
 	switch (action.type) {
 		case 'SIGN_IN':
 			if (
@@ -19,6 +19,10 @@ const signInReducer = (state, action) => {
 			}
 			break;
 
+		case 'ADD_TO_CART':
+			console.log('Added to cart');
+			console.log(action.payload);
+
 		default:
 			console.log('signInReducer default');
 			return initialState;
@@ -29,7 +33,7 @@ export const mainContext = createContext({});
 
 // Can also pass in props.children and get rid of the object for the param i.e. const MainContextProvider = (props.children)
 const MainContextProvider = ({ children }) => {
-	const [state, dispatch] = useReducer(signInReducer, initialState);
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
 		<mainContext.Provider value={{ state, dispatch }}>

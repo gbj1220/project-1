@@ -4,7 +4,7 @@ import SignIn from '../SignIn/SignIn';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../NavBar/NavBar';
 
-export default function MainRouter(props) {
+export default function MainRouter() {
 	const context = useContext(mainContext);
 
 	return (

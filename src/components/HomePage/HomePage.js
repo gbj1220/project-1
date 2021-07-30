@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import { getProducts } from '../Products/Products';
+import { mainContext } from '../../context/context';
 
 const useStyles = makeStyles((theme) => ({
 	icon: {
@@ -52,7 +53,12 @@ const useStyles = makeStyles((theme) => ({
 export default function HomePage() {
 	const classes = useStyles();
 
+	const context = useContext(mainContext);
+
 	const products = getProducts();
+
+	const [product, setProduct] = useState('');
+	const [price, setPrice] = useState(0);
 
 	return (
 		// do a turnery using what is already here as the not logged in page
@@ -73,6 +79,10 @@ export default function HomePage() {
 												gutterBottom
 												variant='h5'
 												component='h2'
+												value={product}
+												onChange={(e) =>
+													setProduct(e.target.value)
+												}
 											>
 												Product: {card.Product}
 											</Typography>
@@ -80,13 +90,28 @@ export default function HomePage() {
 												gutterBottom
 												variant='h5'
 												component='h2'
+												value={price}
+												onChange={(e) =>
+													setPrice(e.target.value)
+												}
 											>
 												Price: {card.Price}
 											</Typography>
 										</CardContent>
 										<span>
-											<Button>Edit</Button>
-											<Button>Delete</Button>
+											<Button
+												onClick={() =>
+													context.dispatch({
+														type: 'ADD_TO_CART',
+														payload: {
+															product: product,
+															price: price,
+														},
+													})
+												}
+											>
+												Add To Cart
+											</Button>
 										</span>
 									</Card>
 								</Paper>
