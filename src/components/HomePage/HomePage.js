@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function Album() {
+export default function HomePage() {
 	const classes = useStyles();
 
 	const products = getProducts();
