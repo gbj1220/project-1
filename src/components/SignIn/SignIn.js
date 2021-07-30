@@ -56,6 +56,8 @@ export default function SignIn() {
 		return e.preventDefault();
 	};
 
+	console.log(ourContext.state);
+
 	return (
 		<Grid container component='main' className={classes.root}>
 			<CssBaseline />
