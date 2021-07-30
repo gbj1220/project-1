@@ -10,10 +10,10 @@ function App() {
 	return (
 		<div className='App'>
 			<MainContextProvider>
-				<NavBar />
+				{/* <NavBar /> */}
 				<SignIn />
-				<ShoppingCart />
-				<HomePage />
+				{/* <ShoppingCart />
+				<HomePage /> */}
 			</MainContextProvider>
 		</div>
 	);

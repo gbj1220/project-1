@@ -75,7 +75,7 @@ export default function SignIn() {
 					<form
 						className={classes.form}
 						noValidate
-						onChange={handleOnSubmit}
+						onSubmit={handleOnSubmit}
 					>
 						<TextField
 							variant='outlined'
@@ -99,14 +99,13 @@ export default function SignIn() {
 							id='password'
 							autoComplete='current-password'
 						/>
-
 						<Button
 							onClick={() =>
 								ourContext.dispatch({
-									case: 'LOGIN',
+									case: 'SIGN_IN',
 									payload: {
-										username: 'greg',
-										password: 'abc123',
+										username: 'password',
+										password: '123abc',
 									},
 								})
 							}
