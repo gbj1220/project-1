@@ -16,6 +16,11 @@ const reducer = (state, action) => {
 					isAuth: true,
 					user: action.payload.username,
 				};
+			} else {
+				return {
+					isAuth: false,
+					user: null,
+				};
 			}
 			break;
 
