@@ -7,19 +7,21 @@ import NavBar from '../NavBar/NavBar';
 export default function MainRouter() {
 	const context = useContext(mainContext);
 
+	let homePageHelper;
+	context.state.isAuth
+		? (homePageHelper = <HomePage />)
+		: (homePageHelper = null);
+
+	let signInPageHelper;
+	!context.state.isAuth
+		? (signInPageHelper = <SignIn />)
+		: (signInPageHelper = null);
+
 	return (
-		<div>
-			{context.state.isAuth ? (
-				<>
-					<NavBar />
-					<HomePage />
-				</>
-			) : (
-				<>
-					<NavBar />
-					<SignIn />
-				</>
-			)}
-		</div>
+		<>
+			<NavBar />
+			{signInPageHelper}
+			{homePageHelper}
+		</>
 	);
 }

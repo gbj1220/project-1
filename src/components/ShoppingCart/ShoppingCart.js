@@ -18,7 +18,7 @@ function createData(product, price, quantity) {
 	return { product, price, quantity };
 }
 
-const initialState = [createData('Frozen yoghurt', 159, 6.0, 24, 4.0)];
+const rows = [createData('Frozen yoghurt', 159, 6.0, 24, 4.0)];
 
 export default function ShoppingCart() {
 	const classes = useStyles();
