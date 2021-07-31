@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignIn(props) {
+export default function SignIn() {
 	const classes = useStyles();
 
 	const ourContext = useContext(mainContext);
@@ -90,7 +90,6 @@ export default function SignIn(props) {
 							id='username'
 							label='Username'
 							name='username'
-							autoComplete='username'
 							autoFocus
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
