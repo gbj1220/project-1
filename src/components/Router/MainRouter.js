@@ -21,7 +21,7 @@ export default function MainRouter() {
 		: (signInPageHelper = null);
 
 	let displayCartHelper;
-	context.state.isAuth && cartItems.length > 1
+	context.state.isAuth && cartItems.length > 0
 		? (displayCartHelper = <ShoppingCart />)
 		: (displayCartHelper = null);
 

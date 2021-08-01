@@ -1,5 +1,6 @@
 import { createContext, useReducer } from 'react';
 import { rows } from '../components/ShoppingCart/ShoppingCart';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
 	isAuth: false,
@@ -25,8 +26,17 @@ const reducer = (state, action) => {
 			}
 
 		case 'ADD_TO_CART':
-			console.log('Added to cart');
-			console.log(action.payload);
+			const newObj = {
+				Product: action.payload.product,
+				Price: action.payload.price,
+				id: uuidv4(),
+			};
+			return (
+				rows.push(newObj),
+				{
+					isAuth: true,
+				}
+			);
 
 		case 'DELETE_FROM_CART':
 			console.log('DeleteFromCart Ran');
