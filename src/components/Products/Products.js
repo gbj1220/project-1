@@ -1,32 +1,40 @@
+import { v4 as uuidv4 } from 'uuid';
+
 let products = [
 	{
 		Product: 'Apple',
-		Price: `$1.99`,
+		Price: 1.99,
+		id: uuidv4(),
 	},
 
 	{
 		Product: 'Banana',
-		Price: `$ .99`,
+		Price: 0.99,
+		id: uuidv4(),
 	},
 
 	{
 		Product: 'Pear',
-		Price: `$1.99`,
+		Price: 1.99,
+		id: uuidv4(),
 	},
 
 	{
 		Product: 'Orange',
-		Price: `$ .99`,
+		Price: 0.99,
+		id: uuidv4(),
 	},
 
 	{
 		Product: 'Coconut',
-		Price: `$3.99`,
+		Price: 3.99,
+		id: uuidv4(),
 	},
 
 	{
 		Product: 'Avocado',
-		Price: `$199.99`,
+		Price: 199.99,
+		id: uuidv4(),
 	},
 ];
 

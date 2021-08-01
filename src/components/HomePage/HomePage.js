@@ -104,8 +104,9 @@ export default function HomePage() {
 													context.dispatch({
 														type: 'ADD_TO_CART',
 														payload: {
-															product: product,
-															price: price,
+															product:
+																card.Product,
+															price: card.Price,
 														},
 													})
 												}
