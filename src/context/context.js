@@ -1,4 +1,5 @@
 import { createContext, useReducer } from 'react';
+import { rows } from '../components/ShoppingCart/ShoppingCart';
 
 const initialState = {
 	isAuth: false,
@@ -22,14 +23,22 @@ const reducer = (state, action) => {
 					user: null,
 				};
 			}
-			break;
 
 		case 'ADD_TO_CART':
 			console.log('Added to cart');
 			console.log(action.payload);
 
+		case 'DELETE_FROM_CART':
+			console.log('DeleteFromCart Ran');
+
+		case 'LOG_OUT':
+			return {
+				isAuth: false,
+				user: null,
+			};
+
 		default:
-			console.log('signInReducer default');
+			console.log('reducer default');
 			return initialState;
 	}
 };

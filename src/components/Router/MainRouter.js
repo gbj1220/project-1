@@ -8,7 +8,7 @@ import { rows } from '../ShoppingCart/ShoppingCart';
 
 export default function MainRouter() {
 	const context = useContext(mainContext);
-	const row = rows;
+	const cartItems = rows;
 
 	let homePageHelper;
 	context.state.isAuth
@@ -21,7 +21,7 @@ export default function MainRouter() {
 		: (signInPageHelper = null);
 
 	let displayCartHelper;
-	context.state.isAuth && row.length > 1
+	context.state.isAuth && cartItems.length > 1
 		? (displayCartHelper = <ShoppingCart />)
 		: (displayCartHelper = null);
 

@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
 	const classes = useStyles();
 
-	const ourContext = useContext(mainContext);
+	const context = useContext(mainContext);
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -54,8 +54,6 @@ export default function SignIn() {
 	const handleOnSubmit = (e) => {
 		return e.preventDefault();
 	};
-
-	console.log(ourContext.state);
 
 	return (
 		<Grid container component='main' className={classes.root}>
@@ -109,7 +107,7 @@ export default function SignIn() {
 
 						<Button
 							onClick={() =>
-								ourContext.dispatch({
+								context.dispatch({
 									type: 'SIGN_IN',
 									payload: {
 										username: username,

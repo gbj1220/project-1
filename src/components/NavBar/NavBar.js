@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
 export default function NavBar() {
 	const classes = useStyles();
 
-	const authContext = useContext(mainContext);
+	const context = useContext(mainContext);
 
-	const notAuthorized = () => {
+	const authorized = () => {
 		return (
 			<div className={classes.root}>
 				<AppBar position='static'>
@@ -41,15 +41,22 @@ export default function NavBar() {
 						<Typography variant='h6' className={classes.title}>
 							My Shopping App
 						</Typography>
-						<Typography>{authContext.state.user}</Typography>
-						<Button color='inherit'>Login</Button>
+						<Typography>{context.state.user}</Typography>
+						<Button
+							onClick={() =>
+								context.dispatch({ type: 'LOG_OUT' })
+							}
+							color='inherit'
+						>
+							Logout
+						</Button>
 					</Toolbar>
 				</AppBar>
 			</div>
 		);
 	};
 
-	const authorized = () => {
+	const notAuthorized = () => {
 		return (
 			<div className={classes.root}>
 				<AppBar position='static'>
@@ -73,7 +80,7 @@ export default function NavBar() {
 	};
 
 	{
-		return !authContext.state.isAuth ? (
+		return context.state.isAuth ? (
 			<div>{authorized()}</div>
 		) : (
 			<div>{notAuthorized()}</div>
