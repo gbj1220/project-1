@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { mainContext } from '../../context/context';
+import { rows } from '../ShoppingCart/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -25,6 +27,14 @@ export default function NavBar() {
 
 	const context = useContext(mainContext);
 
+	const cartItems = rows;
+
+	let helperFunc;
+
+	cartItems.length > 1
+		? (helperFunc = <AddShoppingCartIcon color='action' />)
+		: (helperFunc = <AddShoppingCartIcon color='action' />);
+
 	const authorized = () => {
 		return (
 			<div className={classes.root}>
@@ -42,6 +52,7 @@ export default function NavBar() {
 							My Shopping App
 						</Typography>
 						<Typography>{context.state.user}</Typography>
+						<IconButton>{helperFunc}</IconButton>
 						<Button
 							onClick={() =>
 								context.dispatch({ type: 'LOG_OUT' })
@@ -72,6 +83,7 @@ export default function NavBar() {
 						<Typography variant='h6' className={classes.title}>
 							My Shopping App
 						</Typography>
+						<IconButton>{helperFunc}</IconButton>
 						<Button color='inherit'>Login</Button>
 					</Toolbar>
 				</AppBar>
