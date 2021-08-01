@@ -29,11 +29,11 @@ export default function NavBar() {
 
 	const cartItems = rows;
 
-	let helperFunc;
+	let cartIcon;
 
 	cartItems.length > 1
-		? (helperFunc = <AddShoppingCartIcon color='action' />)
-		: (helperFunc = <AddShoppingCartIcon color='action' />);
+		? (cartIcon = <AddShoppingCartIcon color='action' />)
+		: (cartIcon = <AddShoppingCartIcon color='action' />);
 
 	const authorized = () => {
 		return (
@@ -52,7 +52,7 @@ export default function NavBar() {
 							My Shopping App
 						</Typography>
 						<Typography>{context.state.user}</Typography>
-						<IconButton>{helperFunc}</IconButton>
+						<IconButton>{cartIcon}</IconButton>
 						<Button
 							onClick={() =>
 								context.dispatch({ type: 'LOG_OUT' })
@@ -83,7 +83,7 @@ export default function NavBar() {
 						<Typography variant='h6' className={classes.title}>
 							My Shopping App
 						</Typography>
-						<IconButton>{helperFunc}</IconButton>
+						<IconButton>{cartIcon}</IconButton>
 						<Button color='inherit'>Login</Button>
 					</Toolbar>
 				</AppBar>
