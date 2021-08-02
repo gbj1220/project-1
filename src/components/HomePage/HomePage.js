@@ -59,6 +59,7 @@ export default function HomePage() {
 
 	const [product, setProduct] = useState('');
 	const [price, setPrice] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
 	return (
 		// do a turnery using what is already here as the not logged in page
@@ -69,6 +70,7 @@ export default function HomePage() {
 					<Grid container spacing={4}>
 						{products.map((card) => (
 							<Grid item key={card} xs={12} sm={6} md={4}>
+								{console.log(card.Quantity)}
 								<Paper elevation={3}>
 									<Card className={classes.card}>
 										<CardContent
@@ -106,6 +108,8 @@ export default function HomePage() {
 															product:
 																card.Product,
 															price: card.Price,
+															quantity:
+																card.Quantity,
 														},
 													})
 												}

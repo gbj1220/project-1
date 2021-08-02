@@ -14,6 +14,10 @@ const useStyles = makeStyles({
 	},
 });
 
+function createData(product, price, id) {
+	return { product, price, id };
+}
+
 export const rows = [];
 
 export default function ShoppingCart() {
@@ -32,12 +36,12 @@ export default function ShoppingCart() {
 				</TableHead>
 				<TableBody>
 					{rows.map((row) => (
-						<TableRow key={row.product}>
+						<TableRow key={row.Product}>
 							<TableCell component='th' scope='row'>
-								{row.product}
+								{row.Product}
 							</TableCell>
-							<TableCell align='right'>{row.price}</TableCell>
-							<TableCell align='right'>{row.quantity}</TableCell>
+							<TableCell align='right'>{row.Price}</TableCell>
+							<TableCell align='right'>{row.Quantity}</TableCell>
 						</TableRow>
 					))}
 				</TableBody>

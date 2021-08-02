@@ -30,6 +30,7 @@ const reducer = (state, action) => {
 				Product: action.payload.product,
 				Price: action.payload.price,
 				id: uuidv4(),
+				Quantity: action.payload.quantity,
 			};
 			return (
 				rows.push(newObj),
